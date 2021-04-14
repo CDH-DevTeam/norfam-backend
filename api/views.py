@@ -19,7 +19,7 @@ def sort_tfidf(docA, docB):
     for doc_term in docB.doc_terms.all():
         tfB = log2(doc_term.tf + 1)
         idfB = log2(100_000) - log2(doc_term.term.term_df)
-        totB += tfB * idfB   
+        totB += tfB * idfB
     if totA > totB:
         return -1
     elif totA < totB:
