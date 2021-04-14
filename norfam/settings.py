@@ -19,7 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# Provide actually secret key in server local settings!
 SECRET_KEY = '3bwkw(kl&$o_qo76z6!2%5=_*b-#%62f8h^+o14g7+v%y-4u%0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -77,12 +77,13 @@ WSGI_APPLICATION = 'norfam.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# Provide real passwords in local settings!
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'nor_fam_1',
         'USER': 'norfam',
-        'PASSWORD': '~XuZ92%z,Q}:cb>$',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
     },
@@ -90,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'nor_fam_1',
         'USER': 'norfam',
-        'PASSWORD': '~XuZ92%z,Q}:cb>$',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
     },
@@ -98,7 +99,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'nor_fam_2',
         'USER': 'norfam',
-        'PASSWORD': '~XuZ92%z,Q}:cb>$',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -153,3 +154,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CORS_ORIGIN_ALLOW_ALL = True
+
+# Import local settings
+try:
+    from .settings_local import *
+except ImportError:
+    import sys
+    print("Local settings missing!", file=sys.stderr)
