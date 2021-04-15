@@ -11,6 +11,14 @@
     chmod +x manage.py
     ```
 
+    Or currently
+    
+    ```bash
+    conda create env -f environment.yml 
+    conda activate nordisk-familjebok
+    chmod +x manage.py
+    ```
+
 2. Create MySQL database `nor_fam_1` and import SQL dump to it
 
 3. Create `norfam/settings_local.py` along the lines of:
