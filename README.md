@@ -2,21 +2,19 @@
 
 ## Quick setup
 
-1. Install requirements:
+1. Install requirements with venv:
 
     ```bash
     python3 -m venv .venv
     source .venv/bin/activate
     pip install -r requirements.txt
-    chmod +x manage.py
     ```
 
-    Or currently
-    
+    Or conda:
+
     ```bash
-    conda create env -f environment.yml 
+    conda create env -f environment.yml
     conda activate nordisk-familjebok
-    chmod +x manage.py
     ```
 
 2. Create MySQL database `nor_fam_1` and import SQL dump to it
@@ -40,9 +38,10 @@
 
     See [Configuring Django Settings: Best Practices](https://djangostars.com/blog/configuring-django-settings-best-practices/#header3) for why.
 
-4. Set up Django in database:
+4. Set up Django in database. The first command will perform some migrations and then end with an error because some of the DB structure is already reflected in the dump. Ignore the error and continue with the next command.
 
     ```bash
+    ./manage.py migrate # Ignore error
     ./manage.py migrate --fake
     ```
 
