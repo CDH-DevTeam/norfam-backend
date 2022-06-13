@@ -13,7 +13,7 @@
     Or conda:
 
     ```bash
-    conda create env -f environment.yml
+    conda env create -f environment.yml
     conda activate nordisk-familjebok
     ```
 
